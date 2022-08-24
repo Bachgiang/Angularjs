@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  angular.module('MyApp', [])
+          .controller('ExampleController', ['$scope', function($scope)
+          {
+            $scope.message = {
+              title: 'Tinh tong hai so',
+              num1: 'So thu nhat',
+              num2: 'So thu hai',
+              total: "Tong hai so:",
+              error_invalid: "Error: Phai nhap vao so nguyen duong!"
+            };
+            $scope.error = 'display:none';
+            $scope.show_result = function()
+            {
+              if ($scope.totalForm.$valid) {
+                $scope.error = 'display:none';
+                $scope.result = {
+                  total: parseInt($scope.so_thu_nhat) + parseInt($scope.so_thu_hai),
+                };
+              }
+              else {
+                $scope.error = 'display:block; color: red';
+              }
+            };
+          }
+          ]);
+</script>
+</body>
+</html>
